@@ -92,7 +92,7 @@ public class 신고_결과_받기 {
             reportSet.add(r1);
         }
 
-        // 신고 받은
+        // repoert 항목 중 신고당한 사용자 id를 key로 신고당한 횟수를 value로 가지는 map 생성
         HashMap<String, Integer> reportCntMap = new HashMap<>();
         for (String r2 : reportSet) {
             String[] id_report = r2.split(" ");
@@ -110,7 +110,7 @@ public class 신고_결과_받기 {
 
         int[] answer = new int[id_list.length];
         int i = 0;
-        // id list 순회
+        // id list를 순회하면서 현재의 사용자 id가 report의 신고자 id와 같으면 사용자가 신고한 유저가 신고당한 횟수를 구한 뒤 k 이상이면 +1
         for (String id : id_list) {
             int ans = 0;
             for (String r2 : reportSet) {
