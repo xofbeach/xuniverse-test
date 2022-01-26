@@ -74,8 +74,8 @@ package com.xuniverse.test.lev1;
  정확성 테스트 : 10초
  */
 
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
 
 public class 신고_결과_받기 {
     public static void main(String[] args) {
@@ -87,17 +87,16 @@ public class 신고_결과_받기 {
 
     public static int[] solution(String[] id_list, String[] report, int k) {
         // report 중복제거
-        HashSet<String> reportSet = new HashSet<>();
-        for (String r1 : report) {
-            reportSet.add(r1);
-        }
+        String[] reportArr = Arrays.stream(report).distinct().toArray(String[]::new);
 
-        // repoert 항목 중 신고당한 사용자 id를 key로 신고당한 횟수를 value로 가지는 map 생성
+        String _id;
+        String _report;
+        // report 항목 중 신고당한 사용자 id를 key로 신고당한 횟수를 value로 가지는 map 생성
         HashMap<String, Integer> reportCntMap = new HashMap<>();
-        for (String r2 : reportSet) {
+        for (String r2 : report) {
             String[] id_report = r2.split(" ");
-            String _id = id_report[0];
-            String _report = id_report[1];
+            _id = id_report[0];
+            _report = id_report[1];
 
             Integer rCnt = reportCntMap.get(_report);
             if (rCnt == null) {
@@ -113,10 +112,10 @@ public class 신고_결과_받기 {
         // id list를 순회하면서 현재의 사용자 id가 report의 신고자 id와 같으면 사용자가 신고한 유저가 신고당한 횟수를 구한 뒤 k 이상이면 +1
         for (String id : id_list) {
             int ans = 0;
-            for (String r2 : reportSet) {
+            for (String r2 : report) {
                 String[] id_report = r2.split(" ");
-                String _id = id_report[0];
-                String _report = id_report[1];
+                _id = id_report[0];
+                _report = id_report[1];
                 if (id.equals(_id)) {
                     Integer reportCnt = reportCntMap.get(_report);
                     if (reportCnt != null && reportCnt >= k) {
