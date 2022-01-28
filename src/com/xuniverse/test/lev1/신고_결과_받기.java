@@ -85,6 +85,13 @@ public class 신고_결과_받기 {
         System.out.println(solution(id_list, report, k));
     }
 
+    /**
+     * 각 유저별로 처리 결과 메일을 받은 횟수를 배열에 담아 return 한다.
+     * @param id_list 이용자의 ID가 담긴 문자열 배열
+     * @param report 각 이용자가 신고한 이용자의 ID 정보가 담긴 문자열 배열
+     * @param k 정지 기준이 되는 신고 횟수
+     * @return
+     */
     public static int[] solution(String[] id_list, String[] report, int k) {
         // report 중복제거
         String[] reportArr = Arrays.stream(report).distinct().toArray(String[]::new);
@@ -95,7 +102,6 @@ public class 신고_결과_받기 {
         HashMap<String, Integer> reportCntMap = new HashMap<>();
         for (String r2 : report) {
             String[] id_report = r2.split(" ");
-            _id = id_report[0];
             _report = id_report[1];
 
             Integer rCnt = reportCntMap.get(_report);
