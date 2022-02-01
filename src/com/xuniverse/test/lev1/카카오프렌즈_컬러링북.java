@@ -2,6 +2,7 @@ package com.xuniverse.test.lev1;
 
 /**
  * https://programmers.co.kr/learn/courses/30/lessons/1829
+ * 참고 : https://swycha.tistory.com/141
  * 코딩테스트 연습
  * 2017 카카오코드 예선
  * 카카오프렌즈 컬러링북
@@ -33,7 +34,7 @@ package com.xuniverse.test.lev1;
 
  예제에 대한 설명
  예제로 주어진 그림은 총 4개의 영역으로 구성되어 있으며, 왼쪽 위의 영역과 오른쪽의 영역은 모두 1로 구성되어 있지만 상하좌우로 이어져있지 않으므로 다른 영역이다. 가장 넓은 영역은 왼쪽 위 1이 차지하는 영역으로 총 5칸이다.
- 
+
  */
 
 import java.util.LinkedList;
