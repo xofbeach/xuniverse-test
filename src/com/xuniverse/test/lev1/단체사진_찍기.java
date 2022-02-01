@@ -2,6 +2,7 @@ package com.xuniverse.test.lev1;
 
 /**
  * https://programmers.co.kr/learn/courses/30/lessons/1835
+ * 참고 : https://youngest-programming.tistory.com/586
  * 코딩테스트 연습
  * 2017 카카오코드 본선
  * 단체사진 찍기
@@ -35,8 +36,8 @@ package com.xuniverse.test.lev1;
  */
 
 public class 단체사진_찍기 {
-    private static int answer = 0;
-    private static String[] friends = {"A", "C", "F", "J", "M", "N", "R", "T"};
+    static int answer = 0;
+    static String[] friends = {"A", "C", "F", "J", "M", "N", "R", "T"};
 
     public static void main(String[] args) {
         int n = 2;
@@ -45,6 +46,7 @@ public class 단체사진_찍기 {
     }
 
     public static int solution(int n, String[] data) {
+        answer = 0;
         boolean[] isVisited = new boolean[8]; // 방문여부 저장 배열
         dfs("", isVisited, data);
         return answer;
